@@ -2,64 +2,7 @@ class MyApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [
-	{
-		id: 101,
-		firstName: 'Sue',
-		lastName: 'Corson',
-		email: 'DWhalley@in.gov',
-		phone: '(612)211-6296',
-		address: {
-			streetAddress: '9792 Mattis Ct',
-			city: 'Waukesha',
-			state: 'WI',
-			zip: '22178'
-		},
-		description: 'et lacus magna dolor...',
-	},
-    	{
-		id: 102,
-		firstName: 'Sue1',
-		lastName: 'oCorson1',
-		email: 'DWgjgjhalley@in.gov',
-		phone: '(612)211-6296',
-		address: {
-			streetAddress: '9792 Mattis Ct',
-			city: 'Waukesha',
-			state: 'WI',
-			zip: '22178'
-		},
-		description: 'et lacus magna dolor...',
-	},
-          	{
-		id: 103,
-		firstName: 'Sue2',
-		lastName: 'Corgjgson1',
-		email: 'ghjDWhalley@in.gov',
-		phone: '(612)211-6296',
-		address: {
-			streetAddress: '9792 Mattis Ct',
-			city: 'Waukesha',
-			state: 'WI',
-			zip: '22178'
-		},
-		description: 'et lacus magna dolor...',
-	},
-          	{
-		id: 104,
-		firstName: 'Sue3',
-		lastName: '1Corson',
-		email: '1DWhalley@in.gov',
-		phone: '(612)211-6296',
-		address: {
-			streetAddress: '9792 Mattis Ct',
-			city: 'Waukesha',
-			state: 'WI',
-			zip: '22178'
-		},
-		description: 'et lacus magna dolor...',
-	}
-],
+      data: [],
       isLoading: false,
       sortedBy: "",
       page: 1,
@@ -179,8 +122,6 @@ ${error.message}
     this.setState({formDisplayed: false});
 
     const formElements = event.target.elements;
-      
-    
     const newDataElement =
         {
             id: formElements.id.value,
@@ -190,10 +131,8 @@ ${error.message}
             phone: formElements.phone.value
         }
     
-    
     let newData = [...this.state.data];
     newData.unshift(newDataElement);
-
     this.setState({data: newData});
 
   }
@@ -250,7 +189,7 @@ ${error.message}
         />
         <InputForm 
           formDisplayed = {this.state.formDisplayed}
-          formSubmit = {this.formSubmit}
+          formSubmit = {this.handleFormSubmit}
         />
       </div>
     );

@@ -1,0 +1,51 @@
+thead th {
+    cursor: pointer;
+}
+
+thead th::selection {
+    background: transparent;
+}
+
+.triangle-marker, .triangle-marker-up {
+    position: relative;
+}
+
+
+.triangle-marker::after {
+    content: '';
+    
+    position: absolute;
+    top: 50%;
+    right: 40%;
+    
+    
+    border: 5px solid transparent;
+    border-top: 5px solid black;
+}
+
+.triangle-marker-up::after {
+    content: '';
+    
+    position: absolute;
+    top: calc(50%-1px);
+    right: 40%;
+    
+    
+    border: 5px solid transparent;
+    border-bottom: 5px solid black;
+}
+
+
+.modal-form {
+    width: 30%;
+    box-sizing: border-box;
+    
+    
+    background: lightblue;
+    padding: 20px;
+    
+    position:absolute;
+    top: 30vh;
+    left: 35%;
+}
+

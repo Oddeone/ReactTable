@@ -26,7 +26,8 @@ class MyApp extends React.Component {
     this.shortListURL =
       "http://www.filltext.com/?rows=32&id=%7Bnumber%7C1000%7D&firstName=%7BfirstName%7D&lastName=%7BlastName%7D&email=%7Bemail%7D&phone=%7Bphone%7C(xxx)xxx-xx-xx%7D&address=%7BaddressObject%7D&description=%7Blorem%7C32%7D";
   }
-
+    
+    
   getData(URL) {
     this.setState({isLoading: true});
     fetch(URL)
@@ -94,12 +95,11 @@ ${error.message}
   handlePageButtonClick(event) {
     const element = event.target;
     if (!element.hasAttribute("data-page")) return;
-    console.log("here");
+
     const increment = element.getAttribute("data-page") === "next" ? 1 : -1;
 
     this.setState({ page: this.state.page + increment });
 
-    console.log(this.state.page);
   }
 
   handlePageInputChange(event) {
@@ -110,7 +110,7 @@ ${error.message}
 
     let searchString = event.target.value;
     searchString = searchString.replace(/[\[\\\^\$\.\|\?\*\+\(\)]/g, "\\$&");
-    this.setState({ search: searchString });
+    this.setState({ search: searchString, page: 1 });
   }
 
   handleAddButtonClick(event) {
@@ -217,7 +217,7 @@ class Table extends React.Component {
             return true;
           }
         }
-        console.log("false item");
+
         return false;
       })
       .filter((item, index) => {
